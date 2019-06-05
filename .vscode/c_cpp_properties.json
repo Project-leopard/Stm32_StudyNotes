@@ -1,0 +1,33 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+				"${workspaceFolder}/**",
+				"${workspaceFolder}/Src/",
+				"${workspaceFolder}/Src/Fatfs",
+				"${workspaceFolder}/Src/Peripheral",
+				"${workspaceFolder}/Libraries/CMSIS/Include",
+				"${workspaceFolder}/Libraries/STM32F10x_StdPeriph_Driver/src",
+				"${workspaceFolder}/Libraries/STM32F10x_StdPeriph_Driver/inc",
+				"${workspaceFolder}/Libraries/CMSIS/Device/ST/STM32F10x/Include",
+				"/usr/local/STMicroelectronics/Atollic_TrueSTUDIO/ARMTools/arm-atollic-eabi/include",
+				"/usr/local/STMicroelectronics/Atollic_TrueSTUDIO/ARMTools/lib/gcc/arm-atollic-eabi/6.3.1/include",
+				"/usr/local/STMicroelectronics/Atollic_TrueSTUDIO/ARMTools/lib/gcc/arm-atollic-eabi/6.3.1/include-fixed"
+            ],
+            "defines": [
+				"_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "USE_STDPERIPH_DRIVER",
+				"STM32F10X_HD",
+				"ARM_MATH_CM3"
+			],
+            "compilerPath": "/usr/local/STMicroelectronics/gcc-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}

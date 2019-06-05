@@ -1,0 +1,26 @@
+#STM32F103ZET6
+一丶开发环境：
+1.必要开发工具
+	make
+	gcc-arm-none-eabi
+	STM32CubeProgrammer
+注：建议在Linux下进行开发
+2.可选开发工具
+	VScode>=1.34（插件安装C/C++、Cortex-Debug、ARM、可调试（调试功能不完整）、可烧录、VSCode任务（tasks）已经配置好，Linux下直接安装必要开发工具、VSCode和相关插件就可直接使用）
+二丶Src一些文件和文件夹描述
+1.Peripheral文件夹
+	STM32外设驱动代码目录
+2.startup_stm32f10x_hd.s
+	STM32F103ZET6启动文件
+3.stm32f1xx_it.c、stm32f1xx_it.h
+	推荐中断服务函数都写道这两个文件，方便管理STM32中断服务函数
+4.stm32f10x_conf.h
+	未知
+5.syscalls.c
+	系统IO重定向（如printf定向串口）
+6.system_stm32f10x.c
+	系统时钟配置函数
+7.tiny_printf.c.bak
+	小尺寸printf实现，使STM32程序更小，如要实现把后缀.bak删除即可
+8.usersystem.c、usersystem.h
+	延时函数和位带操作

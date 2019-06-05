@@ -1,0 +1,16 @@
+{
+	"editor.detectIndentation": false,
+    "files.autoSave": "onFocusChange",
+	"editor.insertSpaces": false,
+	"files.exclude": {
+		"**/*.o": true,
+		"**/*.su": true,
+		"**/*.ld": true
+	},
+	"editor.fontSize": 15,
+	"debug.toolBarLocation": "docked",
+	"files.associations": {
+		"iic.h": "c",
+		"spi.h": "c"
+	}
+}
