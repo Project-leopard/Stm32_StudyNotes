@@ -28,15 +28,15 @@
 #define LOW							0
 #define FLASH_ID					0xEF4018
 
-u8 SPI_Flash_SendData(vu8 data);
-u8 SPI_Flash_ReadData(void);
-u32 SPI_Flash_ReadID(void);
-void SPI_Flash_WriteEnable(void);
-void SPI_Flash_WaitForWriteEnd(void);
-void SPI_Flash_SectorErase(vu32 SectorNum);
-void SPI_Flash_EraseAll(void);
-void SPI_Flash_PageWrite(u8* data,vu32 addr,vu16 size);
-void SPI_Flash_BufferRead(u8* data,vu32 addr,vu32 size);
-u32 SPI_Flash_BufferWrite(u8* data,vu32 addr,vu32 size);
+u8 SPI_Flash_SendData(vu8 data);							//SPI_FLASH发送数据函数
+u8 SPI_Flash_ReadData(void);								//SPI_FLASH读取数据函数
+u32 SPI_Flash_ReadID(void);									//SPI_FLASH读取ID函数
+void SPI_Flash_WriteEnable(void);							//SPI_FLASH写使能函数
+void SPI_Flash_WaitForWriteEnd(void);						//SPI_FLASH等待状态函数
+void SPI_Flash_SectorErase(vu32 SectorNum);					//SPI_FLASH清除扇区函数
+void SPI_Flash_EraseAll(void);								//SPI_FLASH清除全部数据函数
+void SPI_Flash_PageWrite(u8* data,vu32 addr,vu16 size);		//SPI_FLASH页写入函数
+void SPI_Flash_BufferRead(u8* data,vu32 addr,vu32 size);	//SPI_FLASH读取数据函数
+u32 SPI_Flash_BufferWrite(u8* data,vu32 addr,vu32 size);	//SPI_FLASH不定量数据写入函数
 
 #endif /* __WQ25128 */
