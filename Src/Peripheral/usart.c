@@ -4,7 +4,7 @@
  * @param 	无
  * @retval 	无
 */
-void USART_Config(void)
+void USART_Initialize(void)
 {
 	/* 定义结构体 */
 	GPIO_InitTypeDef GPIO_InitStruct;												//GPIO结构体

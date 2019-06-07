@@ -6,7 +6,7 @@
  * 由于SMT32硬件I2C存在缺陷，不推荐使用硬件I2C，推荐使用模拟I2C。
  * 硬件I2C只做驱动，不实现任何功能
 */
-void IIC_Config(void)
+void IIC_Initialize(void)
 {
 	/* 定义结构体 */
 	GPIO_InitTypeDef GPIO_InitStruct;											//GPIO结构体

@@ -14,11 +14,13 @@
 
 int main(void)
 {
-	LED_Config();
-	USART_Config();
-	SOFT_IIC_Config();
+	LED_Initialize();
+	USART_Initialize();
+	SOFT_IIC_Initialize();
+	SPI_Flash_Initialize();
+	FSMC_SRAM_Initialize();
 	FSMC_NT35510_Initialize();
-	NT35510_OpenWindow(0,0,100,100);
+	printf("dnf.qq.com\r\n");
 	while(1){
 		RED=LED_ON;
 		GREEN=LED_OFF;

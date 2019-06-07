@@ -4,8 +4,9 @@
 #include "stm32f10x.h"
 #include "usersystem.h"
 #include "nt35510.h"
+#include "w25q128.h"
 
-#define FSMC_CLK			RCC_AHBPeriph_FSMC
+#define FSMC_CLK			RCC_AHBPeriph_FSMC				//FSMC时钟
 
 #define FSMC_A0_CLK			RCC_APB2Periph_GPIOF
 #define FSMC_A0_PORT		GPIOF
@@ -175,7 +176,7 @@
 #define FSMC_NBL1_PORT		GPIOE
 #define FSMC_NBL1_PIN		GPIO_Pin_1
 
-void FSMC_SRAM_Initialize(void);
-void FSMC_NT35510_Initialize(void);
+void FSMC_SRAM_Initialize(void);				//FSMC读写外部SRAM函数
+void FSMC_NT35510_Initialize(void);				//FSMC驱动NT35510 IC函数
 
 #endif /* __FSMC_H */

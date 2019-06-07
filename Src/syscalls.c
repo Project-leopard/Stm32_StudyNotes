@@ -38,7 +38,9 @@ SOFTWARE.
 #include <sys/time.h>
 #include <sys/times.h>
 #include "usart.h"
+#include "nt35510.h"
 
+#define UNUSEND(x)	(void)x
 
 /* Variables */
 #undef errno
@@ -49,12 +51,32 @@ uint8_t **environ = __env;
 
 
 /* Functions */
+static u16 x=0,y=0;
+
 int __io_putchar(int ch)
 {
 	while(!(USART_PORT->SR&0x40));
-	USART_PORT->DR=(uint8_t)ch;
+	USART_PORT->DR=(u8)ch;
+	if(ch=='\n'){
+		x=0;
+		y+=24;
+		return ch;
+	}
+	if(ch=='\r'){
+		return ch;
+	}
+	if(x==480){
+		x=0;
+		y+=24;
+	}
+	if(y==800){
+		return ch;
+	}
+	NT35510_ShowStr(x,y,12,24,ch);
+	x+=12;
 	return ch;
 }
+
 void initialise_monitor_handles()
 {
 }
@@ -67,18 +89,23 @@ int _getpid(void)
 
 int _gettimeofday(struct timeval  *ptimeval, void *ptimezone)
 {
-  errno = ENOSYS;
-  return -1;
+	UNUSEND(ptimeval);
+	UNUSEND(ptimezone);
+  	errno = ENOSYS;
+  	return -1;
 }
 
 int _kill(int32_t pid, int32_t sig)
 {
+	UNUSEND(pid);
+	UNUSEND(sig);
 	errno = ENOSYS;
 	return -1;
 }
 
 void _exit(int32_t status)
 {
+	UNUSEND(status);
 	while (1) {}		/* Make sure we hang here */
 }
 
@@ -86,6 +113,7 @@ int _write(int32_t file, uint8_t *ptr, int32_t len)
 {
 	/* Implement your write code here, this is used by puts and printf for example */
 	/* return len; */
+	UNUSEND(file);
 	int DataIdx;
 
 	for (DataIdx = 0; DataIdx < len; DataIdx++)
@@ -113,6 +141,7 @@ void * _sbrk(int32_t incr)
 
 int _close(int32_t file)
 {
+	UNUSEND(file);
 	errno = ENOSYS;
 	return -1;
 }
@@ -120,72 +149,96 @@ int _close(int32_t file)
 
 int _fstat(int32_t file, struct stat *st)
 {
+	UNUSEND(file);
+	UNUSEND(st);
 	errno = ENOSYS;
 	return -1;
 }
 
 int _isatty(int32_t file)
 {
+	UNUSEND(file);
 	errno = ENOSYS;
 	return 0;
 }
 
 int _lseek(int32_t file, int32_t ptr, int32_t dir)
 {
+	UNUSEND(file);
+	UNUSEND(ptr);
+	UNUSEND(dir);
 	errno = ENOSYS;
 	return -1;
 }
 
 int _read(int32_t file, uint8_t *ptr, int32_t len)
 {
+	UNUSEND(file);
+	UNUSEND(ptr);
+	UNUSEND(len);
 	errno = ENOSYS;
 	return -1;
 }
 
 int _readlink(const char *path, char *buf, size_t bufsize)
 {
-  errno = ENOSYS;
-  return -1;
+	UNUSEND(path);
+	UNUSEND(buf);
+	UNUSEND(bufsize);
+  	errno = ENOSYS;
+  	return -1;
 }
 
 int _open(const uint8_t *path, int32_t flags, int32_t mode)
 {
+	UNUSEND(path);
+	UNUSEND(flags);
+	UNUSEND(mode);
 	errno = ENOSYS;
 	return -1;
 }
 
 int _wait(int32_t *status)
 {
+	UNUSEND(status);
 	errno = ENOSYS;
 	return -1;
 }
 
 int _unlink(const uint8_t *name)
 {
+	UNUSEND(name);
 	errno = ENOSYS;
 	return -1;
 }
 
 int _times(struct tms *buf)
 {
+	UNUSEND(buf);
 	errno = ENOSYS;
 	return -1;
 }
 
 int _stat(const uint8_t *file, struct stat *st)
 {
+	UNUSEND(file);
+	UNUSEND(st);
 	errno = ENOSYS;
 	return -1;
 }
 
 int _symlink(const char *path1, const char *path2)
 {
-  errno = ENOSYS;
-  return -1;
+	UNUSEND(path1);
+	UNUSEND(path2);
+  	errno = ENOSYS;
+  	return -1;
 }
 
 int _link(const uint8_t *old, const uint8_t *new)
 {
+	UNUSEND(old);
+	UNUSEND(new);
 	errno = ENOSYS;
 	return -1;
 }
@@ -198,6 +251,9 @@ int _fork(void)
 
 int _execve(const uint8_t *name, uint8_t * const *argv, uint8_t * const *env)
 {
+	UNUSEND(name);
+	UNUSEND(argv);
+	UNUSEND(env);
 	errno = ENOSYS;
 	return -1;
 }

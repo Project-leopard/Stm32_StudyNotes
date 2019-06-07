@@ -17,6 +17,6 @@
 #define USART_IRQN			USART1_IRQn							//串口中断源
 #define USART_BAUD			115200								//串口波特率
 
-void USART_Config(void);
+void USART_Initialize(void);
 
 #endif /* __USART_H */

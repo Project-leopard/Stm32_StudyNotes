@@ -47,7 +47,6 @@
 #define PGout(n)   BIT_ADDR(GPIOG_ODR_Addr,n)
 #define PGin(n)    BIT_ADDR(GPIOG_IDR_Addr,n)
 
-u8 SPI_ErrorFun(vu8 code);
 void Systick_DelayMs(volatile uint32_t ms);						//Systick延时毫秒函数
 void Systick_DelayUs(volatile uint32_t us);						//Systick延时微秒函数
 

@@ -58,7 +58,7 @@ static void SOFT_IIC_NoAck(void)
  * @param 	无
  * @retval 	无
 */
-void SOFT_IIC_Config(void)
+void SOFT_IIC_Initialize(void)
 {
 	/* 定义结构体 */
 	GPIO_InitTypeDef GPIO_InitStruct;						//GPIO结构体

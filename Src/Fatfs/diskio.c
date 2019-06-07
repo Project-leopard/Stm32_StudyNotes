@@ -55,7 +55,7 @@ DSTATUS disk_initialize (
 	switch (pdrv) {
 	case DEV_W25Q128 :
 		/* 调用SPI_Flash初始化函数 */
-		SPI_Flash_Config();
+		SPI_Flash_Initialize();
 		/* 读取FlashID，确认初始化正常，并返回Flash状态 */
 		return disk_status(DEV_W25Q128);
 	case DEV_SDCARD :
@@ -137,7 +137,7 @@ DRESULT disk_ioctl (
 		switch(cmd){
 			/* 返回扇区个数 */
 			case GET_SECTOR_COUNT :
-			*((DWORD*)buff)=4096;
+			*((DWORD*)buff)=3840;
 			break;
 			/* 返回扇区大小 */
 			case GET_SECTOR_SIZE :

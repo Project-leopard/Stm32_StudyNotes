@@ -15,6 +15,6 @@
 #define LED_ON			0										//LED开
 #define LED_OFF			1										//LED关
 
-void LED_Config(void);											//战舰V3LED初始化函数
+void LED_Initialize(void);										//战舰V3LED初始化函数
 
 #endif /* __LED_H */

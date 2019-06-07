@@ -14,7 +14,7 @@
 #define SDA_HIGH			(SOFT_IIC_PORT->BSRR=0x80)			//SDA拉高实现
 #define SDA_READ			(SOFT_IIC_PORT->IDR&0x80)			//读取SDA线状态
 
-void SOFT_IIC_Config(void);										//模拟I2C初始化、置位函数
+void SOFT_IIC_Initialize(void);									//模拟I2C初始化、置位函数
 void SDA_IO_IN(void);											//SDA配置输入函数
 void SDA_IO_OUT(void);											//SDA配置输出函数
 void SOFT_IIC_Delay(void);										//模拟I2CC延时函数

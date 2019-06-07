@@ -13,6 +13,6 @@
 #define IIC_SPEED			10000							//I2C速率<=400000
 #define IIC_ADDR			0x0010							//I2C自身地址
 
-void IIC_Config(void);										//硬件I2C初始化函数
+void IIC_Initialize(void);									//硬件I2C初始化函数
 
 #endif /* __IIC_H */

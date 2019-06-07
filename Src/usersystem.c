@@ -25,16 +25,3 @@ void Systick_DelayUs(volatile uint32_t us)
 	}
 	SysTick->CTRL&=~SysTick_CTRL_ENABLE_Msk;
 }
-
-u8 SPI_ErrorFun(vu8 code)
-{
-	if(code==0){
-		printf("\r\nSPI_TXE Error\r\n");
-		return 1;
-	}
-	if(code==1){
-		printf("\r\nSPI_RXNE Error\r\n");
-		return 2;
-	}
-	return 10;
-}
