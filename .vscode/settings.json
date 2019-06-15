@@ -11,6 +11,7 @@
 	"debug.toolBarLocation": "docked",
 	"files.associations": {
 		"iic.h": "c",
-		"spi.h": "c"
+		"spi.h": "c",
+		"time.h": "c"
 	}
 }

@@ -31,6 +31,7 @@
 #include <stdio.h>
 #include "stm32f1xx_it.h"
 #include "usart.h"
+#include "tim.h"
 
 /** @addtogroup IO_Toggle
   * @{
@@ -171,6 +172,19 @@ void USART1_IRQHandler(void)
 		while(!(USART_PORT->SR&0x40));
 	}
 	USART_ClearITPendingBit(USART_PORT,USART_IT_RXNE);
+}
+
+void TIM6_IRQHandler(void)
+{
+	static u16 count=0;
+	if(TIM_GetITStatus(TIM6_PORT,TIM_IT_Update)!=RESET){
+		count++;
+		if(count==1000){
+			printf("%d \r\n",count);
+			count=0;
+		}
+		TIM_ClearITPendingBit(TIM6_PORT,TIM_IT_Update);
+	}
 }
 /**
   * @}

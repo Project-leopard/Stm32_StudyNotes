@@ -21,7 +21,7 @@ INC_FLAGS=	-I $(TOP)/Libraries/STM32F10x_StdPeriph_Driver/src \
 			-I $(TOP)/Src/Fatfs \
 			-I $(TOP)/Src
 
-CFLAGS =  -W -Wall -g -mcpu=cortex-m3 -mthumb -std=gnu11 -D STM32F10X_HD -D USE_STDPERIPH_DRIVER $(INC_FLAGS) -Os -ffunction-sections -fdata-sections -fstack-usage -specs=nano.specs
+CFLAGS =  -W -Wall -g -mcpu=cortex-m3 -mthumb -std=gnu11 -D STM32F10X_HD -D USE_STDPERIPH_DRIVER $(INC_FLAGS) -O0 -ffunction-sections -fdata-sections -fstack-usage -specs=nano.specs
 C_SRC=$(shell find ./ -name '*.c')  
 C_OBJ=$(C_SRC:%.c=%.o)
 

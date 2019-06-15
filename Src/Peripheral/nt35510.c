@@ -70,7 +70,7 @@ void NT35510_Clear(vu16 color)
 */
 void NT35510_OpenWindow(vu16 xstart,vu16 ystart,vu16 width,vu16 height)
 {
-	vu32 x;
+	int x;
 	NT35510_WR_CMD(NT35510_SetX);
 	NT35510_WR_DATA(xstart>>8);
 	NT35510_WR_CMD(NT35510_SetX+1);

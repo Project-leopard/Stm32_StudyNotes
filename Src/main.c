@@ -11,6 +11,8 @@
 #include "fsmc.h"
 #include "sram.h"
 #include "nt35510.h"
+#include "tim.h"
+#include "lcd12864.h"
 
 int main(void)
 {
@@ -20,7 +22,9 @@ int main(void)
 	SPI_Flash_Initialize();
 	FSMC_SRAM_Initialize();
 	FSMC_NT35510_Initialize();
+	LCD12864_Initialize();
 	printf("dnf.qq.com\r\n");
+	LCD12864_Display();
 	while(1){
 		RED=LED_ON;
 		GREEN=LED_OFF;
